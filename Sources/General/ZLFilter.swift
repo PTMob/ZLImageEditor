@@ -43,6 +43,12 @@ public typealias ZLFilterApplierType = (_ image: UIImage) -> UIImage
     case mono
     case noir
     case tonal
+    case invert
+    case median
+    case polynomial
+    case posterize
+    case alpha
+    case vignette
     
     var coreImageFilterName: String {
         switch self {
@@ -70,6 +76,18 @@ public typealias ZLFilterApplierType = (_ image: UIImage) -> UIImage
             return "CIPhotoEffectNoir"
         case .tonal:
             return "CIPhotoEffectTonal"
+        case .invert:
+            return "CIColorInvert"
+        case .median:
+            return "CIMedianFilter"
+        case .polynomial:
+            return "CIColorCrossPolynomial"
+        case .posterize:
+            return "CIColorPosterize"
+        case .alpha:
+            return "CIMaskToAlpha"
+        case .vignette:
+            return "CIVignette"
         }
     }
 }
@@ -246,7 +264,7 @@ extension ZLFilter {
 }
 
 public extension ZLFilter {
-    @objc static let all: [ZLFilter] = [.normal, .clarendon, .nashville, .apply1977, .toaster, .chrome, .fade, .instant, .process, .transfer, .tone, .linear, .sepia, .mono, .noir, .tonal]
+    @objc static let all: [ZLFilter] = [.normal, .clarendon, .nashville, .apply1977, .toaster, .chrome, .fade, .instant, .process, .transfer, .tone, .linear, .sepia, .mono, .noir, .tonal, .invert, .median, .polynomial, .posterize, .alpha, .vignette]
     
     @objc static let normal = ZLFilter(name: "Normal", filterType: .normal)
     
@@ -279,4 +297,16 @@ public extension ZLFilter {
     @objc static let noir = ZLFilter(name: "Noir", filterType: .noir)
     
     @objc static let tonal = ZLFilter(name: "Tonal", filterType: .tonal)
+    
+    @objc static let tonal = ZLFilter(name: "Invert", filterType: .invert)
+    
+    @objc static let tonal = ZLFilter(name: "Median", filterType: .median)
+    
+    @objc static let tonal = ZLFilter(name: "Poly", filterType: .polynomial)
+    
+    @objc static let tonal = ZLFilter(name: "Poster", filterType: .posterize)
+    
+    @objc static let tonal = ZLFilter(name: "Alpha", filterType: .alpha)
+    
+    @objc static let tonal = ZLFilter(name: "Vignette", filterType: .vignette)
 }

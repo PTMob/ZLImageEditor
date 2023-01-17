@@ -28,7 +28,7 @@ import UIKit
 
 struct ZLImageEditorLayout {
     static let bottomToolBtnH: CGFloat = 44
-    
+
     static let bottomToolTitleFont = UIFont.systemFont(ofSize: 16)
     
     static let bottomToolBtnCornerRadius: CGFloat = 8
