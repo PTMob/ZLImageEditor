@@ -298,15 +298,15 @@ public extension ZLFilter {
     
     @objc static let tonal = ZLFilter(name: "Tonal", filterType: .tonal)
     
-    @objc static let tonal = ZLFilter(name: "Invert", filterType: .invert)
+    @objc static let invert = ZLFilter(name: "Invert", filterType: .invert)
     
-    @objc static let tonal = ZLFilter(name: "Median", filterType: .median)
+    @objc static let median = ZLFilter(name: "Median", filterType: .median)
     
-    @objc static let tonal = ZLFilter(name: "Poly", filterType: .polynomial)
+    @objc static let polynomial = ZLFilter(name: "Poly", filterType: .polynomial)
     
-    @objc static let tonal = ZLFilter(name: "Poster", filterType: .posterize)
+    @objc static let posterize = ZLFilter(name: "Poster", filterType: .posterize)
     
-    @objc static let tonal = ZLFilter(name: "Alpha", filterType: .alpha)
+    @objc static let alpha = ZLFilter(name: "Alpha", filterType: .alpha)
     
-    @objc static let tonal = ZLFilter(name: "Vignette", filterType: .vignette)
+    @objc static let vignette = ZLFilter(name: "Vignette", filterType: .vignette)
 }
