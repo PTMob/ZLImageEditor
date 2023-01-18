@@ -185,9 +185,9 @@ class ZLAdjustSlider: UIView {
             let totalW = zl.width / 2
             let tintW = totalW * abs(CGFloat(value)) / CGFloat(ZLAdjustSlider.maximumValue)
             if value > 0 {
-                return CGRect(x: totalW+tintW-(pinWidth/2), y: valueLabel.zl.bottom, width: pinWidth, height: pinWidth)
+                return CGRect(x: totalW+tintW-(pinWidth/2), y: valueLabel.zl.bottom-3, width: pinWidth, height: pinWidth)
             } else {
-                return CGRect(x: totalW-tintW-(pinWidth/2), y: 0, width: pinWidth, height: pinWidth)
+                return CGRect(x: totalW-tintW-(pinWidth/2), y: valueLabel.zl.bottom-3, width: pinWidth, height: pinWidth)
             }
         }
     }
