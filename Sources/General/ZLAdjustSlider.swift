@@ -29,7 +29,7 @@ class ZLAdjustSlider: UIView {
     
     static let minimumValue: Float = -1
     
-    let sliderWidth: CGFloat = 5
+    let sliderWidth: CGFloat = 4
     let pinWidth: CGFloat = 20
     
     lazy var valueLabel: UILabel = {
@@ -134,7 +134,7 @@ class ZLAdjustSlider: UIView {
             valueLabel.frame = CGRect(x: 0, y: bounds.height / 2 - 10, width: 38, height: 20)
         } else {
             valueLabel.frame = CGRect(x: 0, y: 0, width: zl.width, height: 38)
-            shadowView.frame = CGRect(x: 0, y: valueLabel.zl.bottom + 2, width: zl.width, height: sliderWidth)
+            shadowView.frame = CGRect(x: 0, y: valueLabel.zl.bottom + 7, width: zl.width, height: sliderWidth)
             whiteView.frame = shadowView.frame
             tintView.frame = calculateTintFrame()
             pinView.frame = calculatePinFrame()
@@ -185,9 +185,9 @@ class ZLAdjustSlider: UIView {
             let totalW = zl.width / 2
             let tintW = totalW * abs(CGFloat(value)) / CGFloat(ZLAdjustSlider.maximumValue)
             if value > 0 {
-                return totalW+tintW-(ZLAdjustSlider.pinWidth/2)
+                return CGRect(x: totalW+tintW-(ZLAdjustSlider.pinWidth/2), y: valueLabel.zl.bottom, width: pinWidth, height: pinWidth)
             } else {
-                return totalW-tintW-(ZLAdjustSlider.pinWidth/2)
+                return CGRect(x: totalW-tintW-(ZLAdjustSlider.pinWidth/2), y: 0, width: pinWidth, height: pinWidth)
             }
         }
     }
