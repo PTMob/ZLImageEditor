@@ -114,6 +114,11 @@ class ZLInputTextViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .black
+
+        var insets = UIEdgeInsets.zero
+        if #available(iOS 11.0, *) {
+            insets = self.view.safeAreaInsets
+        }
         
         let bgImageView = UIImageView(image: image?.zl.blurImage(level: 4))
         bgImageView.frame = view.bounds
@@ -155,7 +160,7 @@ class ZLInputTextViewController: UIViewController {
         layout.minimumInteritemSpacing = 15
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: view.frame.height - ZLInputTextViewController.collectionViewHeight, width: view.frame.width, height: ZLInputTextViewController.collectionViewHeight), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: view.frame.height - ZLInputTextViewController.collectionViewHeight - insets.bottom, width: view.frame.width, height: ZLInputTextViewController.collectionViewHeight), collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
