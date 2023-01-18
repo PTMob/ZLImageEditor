@@ -44,11 +44,18 @@ public typealias ZLFilterApplierType = (_ image: UIImage) -> UIImage
     case noir
     case tonal
     case invert
-    case median
-    case polynomial
     case posterize
     case alpha
-    case vignette
+    case tile
+    case bloom
+    case comic
+    case cristallize
+    case edges
+    case edgework
+    case gloom
+    case hexagonal
+    case pixellate
+    case pointillize
     
     var coreImageFilterName: String {
         switch self {
@@ -78,16 +85,30 @@ public typealias ZLFilterApplierType = (_ image: UIImage) -> UIImage
             return "CIPhotoEffectTonal"
         case .invert:
             return "CIColorInvert"
-        case .median:
-            return "CIMedianFilter"
-        case .polynomial:
-            return "CIColorCrossPolynomial"
         case .posterize:
             return "CIColorPosterize"
         case .alpha:
             return "CIMaskToAlpha"
-        case .vignette:
-            return "CIVignette"
+        case .tile:
+            return "CIOpTile"
+        case .bloom:
+            return "CIBloom"
+        case .comic:
+            return "CIComicEffect"
+        case .cristallize:
+            return "CICrystallize"
+        case .edges:
+            return "CIEdges"
+        case .edgework:
+            return "CIEdgeWork"
+        case .gloom:
+            return "CIGloom"
+        case .hexagonal:
+            return "CIHexagonalPixellate"
+        case .pixellate:
+            return "CIPixellate"
+        case .pointillize:
+            return "CIPointillize"
         }
     }
 }
@@ -264,7 +285,7 @@ extension ZLFilter {
 }
 
 public extension ZLFilter {
-    @objc static let all: [ZLFilter] = [.normal, .clarendon, .nashville, .apply1977, .toaster, .chrome, .fade, .instant, .process, .transfer, .tone, .linear, .sepia, .mono, .noir, .tonal, .invert, .median, .polynomial, .posterize, .alpha, .vignette]
+    @objc static let all: [ZLFilter] = [.normal, .clarendon, .nashville, .apply1977, .toaster, .chrome, .fade, .instant, .process, .transfer, .tone, .linear, .sepia, .mono, .noir, .tonal, .invert, .posterize, .alpha, .tile, .bloom, .comic, .cristallize, .edges, .edgework, .gloom, .hexagonal, .pixellate, .pointillize]
     
     @objc static let normal = ZLFilter(name: "Normal", filterType: .normal)
     
@@ -300,13 +321,27 @@ public extension ZLFilter {
     
     @objc static let invert = ZLFilter(name: "Invert", filterType: .invert)
     
-    @objc static let median = ZLFilter(name: "Median", filterType: .median)
-    
-    @objc static let polynomial = ZLFilter(name: "Poly", filterType: .polynomial)
-    
     @objc static let posterize = ZLFilter(name: "Poster", filterType: .posterize)
     
     @objc static let alpha = ZLFilter(name: "Alpha", filterType: .alpha)
     
-    @objc static let vignette = ZLFilter(name: "Vignette", filterType: .vignette)
+    @objc static let tile = ZLFilter(name: "Tile", filterType: .tile)
+    
+    @objc static let bloom = ZLFilter(name: "Bloom", filterType: .bloom)
+    
+    @objc static let comic = ZLFilter(name: "Comic", filterType: .comic)
+    
+    @objc static let cristallize = ZLFilter(name: "Cristallize", filterType: .cristallize)
+    
+    @objc static let edges = ZLFilter(name: "Edges", filterType: .edges)
+    
+    @objc static let edgework = ZLFilter(name: "Edgework", filterType: .edgework)
+    
+    @objc static let gloom = ZLFilter(name: "Gloom", filterType: .gloom)
+    
+    @objc static let hexagonal = ZLFilter(name: "Hexagonal", filterType: .hexagonal)
+    
+    @objc static let pixellate = ZLFilter(name: "Pixellate", filterType: .pixellate)
+    
+    @objc static let pointillize = ZLFilter(name: "Pointillize", filterType: .pointillize)
 }
