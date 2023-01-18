@@ -446,7 +446,7 @@ open class ZLEditImageViewController: UIViewController {
             adjustSlider?.frame = CGRect(x: view.zl.width - 60, y: view.zl.height / 2 - 100, width: 60, height: 200)
         } else {
             let sliderHeight: CGFloat = 60
-            let sliderWidth = UIDevice.current.userInterfaceIdiom == .phone ? view.zl.width - 100 : view.zl.width / 2
+            let sliderWidth = UIDevice.current.userInterfaceIdiom == .phone ? view.zl.width - 40 : view.zl.width / 2
             adjustSlider?.frame = CGRect(
                 x: (view.zl.width - sliderWidth) / 2,
                 y: bottomShadowView.zl.top - sliderHeight,
@@ -1526,6 +1526,8 @@ extension ZLEditImageViewController: UICollectionViewDataSource, UICollectionVie
             
             cell.nameLabel.text = filter.name
             cell.imageView.image = image
+            cell.imageView.layer.cornerRadius = 4
+            // cell.imageView.clipsToBounds = true
             
             if currentFilter === filter {
                 cell.nameLabel.textColor = .zl.toolTitleTintColor

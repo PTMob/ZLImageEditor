@@ -178,7 +178,7 @@ class ZLAdjustToolCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        nameLabel.frame = CGRect(x: 0, y: bounds.height - 20, width: bounds.width, height: 20)
+        nameLabel.frame = CGRect(x: 0, y: bounds.height - 30, width: bounds.width, height: 20)
         nameLabel.font = UIFont.systemFont(ofSize: 12)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
@@ -191,7 +191,7 @@ class ZLAdjustToolCell: UICollectionViewCell {
         nameLabel.minimumScaleFactor = 0.5
         contentView.addSubview(nameLabel)
 
-        imageView.frame = CGRect(x: (bounds.width - 20) / 2, y: 0, width: bounds.width, height: bounds.height)
+        imageView.frame = CGRect(x: (bounds.width - 30) / 2, y: 0, width: 30, height: 30)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         contentView.addSubview(imageView)
