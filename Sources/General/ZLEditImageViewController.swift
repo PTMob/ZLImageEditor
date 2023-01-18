@@ -473,8 +473,8 @@ open class ZLEditImageViewController: UIViewController {
         let toolY: CGFloat = 85
         
         let doneBtnH = ZLImageEditorLayout.bottomToolBtnH
-        let doneBtnW = localLanguageTextValue(.editFinish).zl.boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: doneBtnH)).width + 20
-        doneBtn.frame = CGRect(x: view.zl.width - 20 - doneBtnW, y: toolY - 2, width: doneBtnW, height: doneBtnH)
+        let doneBtnW = localLanguageTextValue(.editFinish).zl.boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: doneBtnH)).width + 40
+        doneBtn.frame = CGRect(x: view.zl.width - 20 - doneBtnW, y: toolY - 5, width: doneBtnW, height: doneBtnH)
         
         editToolCollectionView.frame = CGRect(x: 20, y: toolY, width: view.zl.width - 20 - 20 - doneBtnW - 20, height: 30)
         
