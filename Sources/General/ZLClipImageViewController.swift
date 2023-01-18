@@ -323,7 +323,7 @@ class ZLClipImageViewController: UIViewController {
         revertBtn.enlargeInset = 20
         revertBtn.titleLabel?.font = ZLImageEditorLayout.bottomToolTitleFont
         revertBtn.addTarget(self, action: #selector(revertBtnClick), for: .touchUpInside)
-        bottomToolView.addSubview(revertBtn)
+        // bottomToolView.addSubview(revertBtn)
         
         doneBtn.setImage(getImage("zl_right"), for: .normal)
         doneBtn.adjustsImageWhenHighlighted = false
