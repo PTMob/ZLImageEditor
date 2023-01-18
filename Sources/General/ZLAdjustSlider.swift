@@ -30,6 +30,7 @@ class ZLAdjustSlider: UIView {
     static let minimumValue: Float = -1
     
     let sliderWidth: CGFloat = 5
+    let pinWidth: CGFloat = 20
     
     lazy var valueLabel: UILabel = {
         let label = UILabel()
@@ -75,12 +76,22 @@ class ZLAdjustSlider: UIView {
         return view
     }()
     
+    lazy var pinView: UIView = {
+        let view = UIView()
+        view.isUserInteractionEnabled = true
+        view.backgroundColor = .zl.adjustSliderTintColor
+        view.layer.cornerRadius = pinWidth / 2
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
     lazy var pan = UIPanGestureRecognizer(target: self, action: #selector(panAction(_:)))
     
     var value: Float = 0 {
         didSet {
             valueLabel.text = String(Int(roundf(value * 100)))
             tintView.frame = calculateTintFrame()
+            pinView.frame = calculatePinFrame()
         }
     }
     
@@ -117,6 +128,7 @@ class ZLAdjustSlider: UIView {
             shadowView.frame = CGRect(x: 40, y: 0, width: sliderWidth, height: bounds.height)
             whiteView.frame = shadowView.frame
             tintView.frame = calculateTintFrame()
+            pinView.frame = calculatePinFrame()
             let separatorH: CGFloat = 1
             separator.frame = CGRect(x: 0, y: (bounds.height - separatorH) / 2, width: sliderWidth, height: separatorH)
             valueLabel.frame = CGRect(x: 0, y: bounds.height / 2 - 10, width: 38, height: 20)
@@ -125,6 +137,7 @@ class ZLAdjustSlider: UIView {
             shadowView.frame = CGRect(x: 0, y: valueLabel.zl.bottom + 2, width: zl.width, height: sliderWidth)
             whiteView.frame = shadowView.frame
             tintView.frame = calculateTintFrame()
+            pinView.frame = calculatePinFrame()
             let separatorW: CGFloat = 1
             separator.frame = CGRect(x: (zl.width - separatorW) / 2, y: 0, width: separatorW, height: sliderWidth)
         }
@@ -135,6 +148,7 @@ class ZLAdjustSlider: UIView {
         addSubview(whiteView)
         whiteView.addSubview(tintView)
         whiteView.addSubview(separator)
+        addSubview(pinView)
         addSubview(valueLabel)
     }
     
@@ -154,6 +168,26 @@ class ZLAdjustSlider: UIView {
                 return CGRect(x: totalW, y: 0, width: tintW, height: sliderWidth)
             } else {
                 return CGRect(x: totalW - tintW, y: 0, width: tintW, height: sliderWidth)
+            }
+        }
+    }
+    
+    private func calculatePinFrame() -> CGRect {
+        if isVertical {
+            let totalH = zl.height / 2
+            let tintH = totalH * abs(CGFloat(value)) / CGFloat(ZLAdjustSlider.maximumValue)
+            if value > 0 {
+                return CGRect(x: 0, y: totalH - tintH, width: sliderWidth, height: tintH)
+            } else {
+                return CGRect(x: 0, y: totalH, width: sliderWidth, height: tintH)
+            }
+        } else {
+            let totalW = zl.width / 2
+            let tintW = totalW * abs(CGFloat(value)) / CGFloat(ZLAdjustSlider.maximumValue)
+            if value > 0 {
+                return totalW+tintW-(ZLAdjustSlider.pinWidth/2)
+            } else {
+                return totalW-tintW-(ZLAdjustSlider.pinWidth/2)
             }
         }
     }
