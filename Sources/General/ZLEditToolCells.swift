@@ -189,7 +189,7 @@ class ZLAdjustToolCell: UICollectionViewCell {
         nameLabel.layer.shadowOpacity = 1
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.minimumScaleFactor = 0.5
-        contentView.addSubview(nameLabel)
+        // contentView.addSubview(nameLabel)
 
         imageView.frame = CGRect(x: (bounds.width - 30) / 2, y: 0, width: 30, height: 30)
         imageView.contentMode = .scaleAspectFill
