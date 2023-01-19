@@ -89,8 +89,9 @@ open class ZLEditImageViewController: UIViewController {
     public var filterColViewH: CGFloat = 80
     
     public var adjustColViewH: CGFloat = 60
+    public var adjustColViewW: CGFloat = 40
     
-    public var ashbinSize = CGSize(width: 160, height: 80)
+    public var ashbinSize = CGSize(width: 200, height: 80)
     
     open lazy var mainScrollView: UIScrollView = {
         let view = UIScrollView()
@@ -449,7 +450,7 @@ open class ZLEditImageViewController: UIViewController {
             let sliderWidth = UIDevice.current.userInterfaceIdiom == .phone ? view.zl.width - 40 : view.zl.width / 2
             adjustSlider?.frame = CGRect(
                 x: (view.zl.width - sliderWidth) / 2,
-                y: bottomShadowView.zl.top - sliderHeight,
+                y: bottomShadowView.zl.top - sliderHeight + 20,
                 width: sliderWidth,
                 height: sliderHeight
             )
@@ -633,7 +634,7 @@ open class ZLEditImageViewController: UIViewController {
             editImage = editImage.zl.adjust(brightness: brightness, contrast: contrast, saturation: saturation) ?? editImage
             
             let adjustLayout = UICollectionViewFlowLayout()
-            adjustLayout.itemSize = CGSize(width: adjustColViewH, height: adjustColViewH)
+            adjustLayout.itemSize = CGSize(width: adjustColViewW, height: adjustColViewH)
             adjustLayout.minimumLineSpacing = 10
             adjustLayout.minimumInteritemSpacing = 10
             adjustLayout.scrollDirection = .horizontal

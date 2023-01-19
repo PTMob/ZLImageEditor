@@ -158,15 +158,15 @@ class ZLAdjustToolCell: UICollectionViewCell {
             case .brightness:
                 imageView.image = getImage("zl_brightness")
                 imageView.highlightedImage = getImage("zl_brightness_selected")
-                nameLabel.text = localLanguageTextValue(.brightness)
+                nameLabel.text = ""
             case .contrast:
                 imageView.image = getImage("zl_contrast")
                 imageView.highlightedImage = getImage("zl_contrast_selected")
-                nameLabel.text = localLanguageTextValue(.contrast)
+                nameLabel.text = ""
             case .saturation:
                 imageView.image = getImage("zl_saturation")
                 imageView.highlightedImage = getImage("zl_saturation_selected")
-                nameLabel.text = localLanguageTextValue(.saturation)
+                nameLabel.text = ""
             }
             if let color = UIColor.zl.toolIconHighlightedColor {
                 imageView.highlightedImage = imageView.highlightedImage?
@@ -191,7 +191,7 @@ class ZLAdjustToolCell: UICollectionViewCell {
         nameLabel.minimumScaleFactor = 0.5
         // contentView.addSubview(nameLabel)
 
-        imageView.frame = CGRect(x: (bounds.width - 30) / 2, y: 0, width: 30, height: 30)
+        imageView.frame = CGRect(x: (bounds.width - 30) / 2, y: 20, width: 30, height: 30)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         contentView.addSubview(imageView)
